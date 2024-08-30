@@ -1,0 +1,37 @@
+.flex-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-box img {
+  vertical-align: top;
+}
+
+.thumnail-left-box {
+  width: 70%;
+  margin: 0;
+  padding: 0 0 2.5%;
+}
+
+.thumnail-left-box img {
+  width: 100%;
+}
+
+.thumnail-right-box {
+  width: 30%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.thumnail-right-box li {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  margin: 0 0 0 auto;
+}
+
+.thumnail-right-box li img {
+  width: 100%;
+  margin: 0 0 auto;
+}
