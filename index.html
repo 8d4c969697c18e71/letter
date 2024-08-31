@@ -1,21 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link href="/style.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="back">back</div>
-    <img src="">
-    <div class="icon">
-      <input type="button" value="button" onclick="iconClick()">
-    </div>
-    <script>
-      function iconClick(){
+<head>
+  <meta charset="UTF-8">
+  <title>Outlook Localstop</title>
+  <link href="style.css" rel="stylesheet">
+  <style>
+    body{
+      text-align: center;
+      overflow-y: hidden;
+      margin-top: 20%;
+      font-size: 12px;
+      font-family: 'RFD12';
+      background-color: #008e98;
+    }
+    footer{
+      height: 3px;
+      position: absolute;
+      bottom: 0px;
+    }
+  </style>
+</head>
 
-      }
-    </script>
-  </body>
-</html>
+<body>
+<div class="login_base">
+  <div class="login_header">
+    <img src="img/header.jpg">
+  </div>
+  <br>
+  <p>
+    USER NAME: 
+    <input type="text" id="user" style="font-family: 'RFD12';">
+    &emsp;&emsp;&emsp;&emsp;&nbsp;
+  </p>
+  <p>
+    PASSWORD : 
+    <input type="password" id="pass" style="font-family: 'RFD12';">
+    <input type="button" id="visibilityButton" value=" 表示 " onclick="visibility()" style="font-family: 'RFD12';">
+  </p>
+  <p>
+    <input type="submit" value="Submit" onclick="login()" style="font-family: 'RFD12';">
+  </p>
+  <div id="failedLogin" style="display: none;">
+    ログインに失敗しました。
+  </div>
+</div>
 
+<script>
+  let data={username: "damon40", password: "schiller1805"};
+
+  function login(){
+    let user = document.getElementById("user").value;
+    let pass = document.getElementById("pass").value;
+  
+    if(data.username === user && data.password === pass){
+      location.href="outlook.html";
+    }
+    else{
+      document.getElementById("failedLogin").style="display: block;";
+    }
+  }
+
+  function visibility(){
+    let vb = document.getElementById('visibilityButton');
+    let ip = document.getElementById('pass');
+
+    if(ip.type=='password'){
+      ip.type='text';
+      vb.value='非表示';
+    }else{
+      ip.type='password';
+      vb.value=' 表示 ';
+    }
+  }
+</script>
+</body>
