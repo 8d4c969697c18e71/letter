@@ -1,21 +1,263 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link href="/style.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="back">back</div>
-    <img src="">
-    <div class="icon">
-      <input type="button" value="button" onclick="iconClick()">
-    </div>
-    <script>
-      function iconClick(){
+<head>
+  <meta charset="UTF-8">
+  <title>Outlook Localstop</title>
+  <link href="style.css" rel="stylesheet">
+  <style>
+    body{
+      text-align: center;
+      overflow-y: hidden;
+      margin: 0;
+      font-size: 12px;
+      font-family: 'RFD12';
+      background-color: #008e98;
+    }
+    footer{
+      height: 24px;
+      position: absolute;
+      bottom: 0px;
+    }
+  </style>
+</head>
 
-      }
-    </script>
-  </body>
+<body>
+<div class="base">
+    <img src="img/header.jpg">
+
+  <div class="mid">
+    <div class="left">
+      <div class="left_base">
+        <img src="img/header_left.jpg">
+        <div class="left_mid" style="padding-left: 10px;">
+
+          <div class="icon" style="padding-top: 3px;">
+            <img src="img/icon1.jpg">
+            <img src="img/icon2.jpg">
+          </div>
+          <div class="text">
+            <a class="pointerClass" id="inbox">受信トレイ</a> <br>
+            <a class="pointerClass" id="trash">削除済みアイテム</a>
+          </div>
+
+        </div>
+        <div class="left_footer">
+          <img src="img/footer_left.jpg">
+        </div>
+      </div>
+    </div>
+
+    <div class="mid_right">
+
+      <div class="rightup">
+        <div class="right_base">
+          <img src="img/header_rightup.jpg">
+          <div id="inboxList" style="display: none;">
+            <div class="right_mid" style="padding-left: 75px;">
+              <div class="icon" style="padding-top: 3px;">
+                <img src="img/icon3.jpg">
+                <img src="img/icon3.jpg">
+                <img src="img/icon3.jpg">
+                <img src="img/icon3.jpg">
+                <img src="img/icon3.jpg">
+              </div>
+              <div class="text" style="width: 140px;">
+                <a class="pointerClass" id="inboxName0">pythias19</a> <br>
+                <a class="pointerClass" id="inboxName1">pythias19</a> <br>
+                <a class="pointerClass" id="inboxName2">pythias19</a> <br>
+                <a class="pointerClass" id="inboxName3">pythias19</a> <br>
+                <a class="pointerClass" id="inboxName4">pythias19</a>
+              </div>
+              <div class="text">
+                <a class="pointerClass" id="inboxSubject0">愚痴</a> <br>
+                <a class="pointerClass" id="inboxSubject1">報告</a> <br>
+                <a class="pointerClass" id="inboxSubject2">報告</a> <br>
+                <a class="pointerClass" id="inboxSubject3">k</a> <br>
+                <a class="pointerClass" id="inboxSubject4">なし</a>
+              </div>
+            </div>
+          </div>
+
+          <div id="trashList" style="display: none;">
+            <div class="right_mid"
+              style="padding-top: 10px; padding-left: 75px;">
+              削除済みアイテムはありません。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rightbottom">
+        <div class="right_base">
+          <div class="rightbottom_header" style="text-align: left;">
+            <div style="margin-top: 10px; margin-left: 10px; line-height: 16px;">
+
+                <a id="subject"></a>
+
+            </div>
+          </div>
+          <div class="right_mid" style="text-align: left; padding-left: 10px;">
+            <a id="text"></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="edge"></div>
+  </div>
+
+  <footer>
+    <img src="img/footer.jpg">
+  </footer>
+</div>
+
+<script>
+  document.getElementById('inbox').addEventListener('click',function(){
+    document.getElementById('inbox').style.background='#CECECE';
+    document.getElementById('trash').style.background='#FFFFFF';
+    document.getElementById('trashList').style.display='none';
+    document.getElementById('inboxList').style.display='block';
+  });
+  document.getElementById('trash').addEventListener('click',function(){
+    document.getElementById('trash').style.background='#CECECE';
+    document.getElementById('inbox').style.background='#FFFFFF';
+    document.getElementById('inboxList').style.display='none';
+    document.getElementById('trashList').style.display='block';
+    document.getElementById('subject').innerHTML="";
+    document.getElementById('text').innerHTML="";
+    for(var i=0; i<5; i++){
+      document.getElementById('inboxName'+i).style.background='#FFFFFF';
+      document.getElementById('inboxSubject'+i).style.background='#FFFFFF';
+    }
+  });
+
+  const text0 ="<br>芹野<br><br><br>愚痴を言う<br>すまない<br><br><br>村では結局牧人君を説得することはできなかった<br>頑なに葡萄の季節まで待ってくれと言われてしまった<br>あいつにも伝えたいことがあったが言う機会を逃した<br><br>きっと佳い夫婦になると祈ることしかできない<br><br><br>本当はこの佳い人たちと生涯暮らしていきたい<br><br>一生このままここにいたい<br><br><br>村に居る間に雨が強くなってきた<br>不吉だ";
+  const text1 = "<br><br>状況は悪い<br>一昨日の豪雨の影響で川が氾濫している<br>さらに悪いことに木端微塵に橋桁を跳ね飛ばしている<br>このままでは期限までに戻れるか怪しい<br>時は刻々に過ぎていく<br><br><br>もし私が失敗した場合は逃げてくれ<br>大仁翁はお前をやるのに躊躇はないだろう";
+  const text2 ="<br>何とか対岸に渡れた<br>押し流されながらだったが<br><br><br>端末も無事だった<br>太陽が沈む前に私が辿り着かなければお前も殺されてしまう<br><br><br>一刻といえども　無駄にはできない";
+  const text3 ="<br>まずい<br><br><br>近くを武装した奴らが嗅ぎ回ってる<br>あいつらは白楠でみたことがある<br>たしか大仁翁の駒だったはずだ<br><br><br>あれを率いてる糸目の男　外部から";
+  const text4 ="<br><br>もう無理だ<br><br><br>バレてしまった<br>一人が持っていたクラブを奪って二人やったまでは良かったが<br>肩をうたれた<br><br><br>陽射しが強くなってきた<br><br>立ち上がれない<br>もはや芋虫ほども動けない<br>暑い<br><br><br>芹野<br>ゆるしてくれ<br><br>私は　永遠に裏切者だ";
+
+  document.getElementById('inboxName0').addEventListener('click',function(){
+    var sub = document.getElementById('inboxSubject0').textContent;
+    document.getElementById('subject').innerHTML="<b>送信者</b>：pythias19　<b>宛先</b>：damon40<br><b>件名</b>："+sub;
+    document.getElementById('text').innerHTML
+      =text0;
+    for(var i=0; i<5; i++){
+      document.getElementById('inboxName'+i).style.background='#FFFFFF';
+      document.getElementById('inboxSubject'+i).style.background='#FFFFFF';
+    }
+    document.getElementById('inboxName0').style.background='#CECECE';
+    document.getElementById('inboxSubject0').style.background='#CECECE';
+  });
+  document.getElementById('inboxSubject0').addEventListener('click',function(){
+    var sub = document.getElementById('inboxSubject0').textContent;
+    document.getElementById('subject').innerHTML="<b>送信者</b>：pythias19　<b>宛先</b>：damon40<br><b>件名</b>："+sub;
+    document.getElementById('text').innerHTML
+      =text0;
+    for(var i=0; i<5; i++){
+      document.getElementById('inboxName'+i).style.background='#FFFFFF';
+      document.getElementById('inboxSubject'+i).style.background='#FFFFFF';
+    }
+    document.getElementById('inboxName0').style.background='#CECECE';
+    document.getElementById('inboxSubject0').style.background='#CECECE';
+  });
+  document.getElementById('inboxName1').addEventListener('click',function(){
+    var sub = document.getElementById('inboxSubject1').textContent;
+    document.getElementById('subject').innerHTML="<b>送信者</b>：pythias19　<b>宛先</b>：damon40<br><b>件名</b>："+sub;
+    document.getElementById('text').innerHTML
+      =text1;
+    for(var i=0; i<5; i++){
+      document.getElementById('inboxName'+i).style.background='#FFFFFF';
+      document.getElementById('inboxSubject'+i).style.background='#FFFFFF';
+    }
+    document.getElementById('inboxName1').style.background='#CECECE';
+    document.getElementById('inboxSubject1').style.background='#CECECE';
+  });
+  document.getElementById('inboxSubject1').addEventListener('click',function(){
+    var sub = document.getElementById('inboxSubject1').textContent;
+    document.getElementById('subject').innerHTML="<b>送信者</b>：pythias19　<b>宛先</b>：damon40<br><b>件名</b>："+sub;
+    document.getElementById('text').innerHTML
+      =text1;
+    for(var i=0; i<5; i++){
+      document.getElementById('inboxName'+i).style.background='#FFFFFF';
+      document.getElementById('inboxSubject'+i).style.background='#FFFFFF';
+    }
+    document.getElementById('inboxName1').style.background='#CECECE';
+    document.getElementById('inboxSubject1').style.background='#CECECE';
+  });
+  document.getElementById('inboxName2').addEventListener('click',function(){
+    var sub = document.getElementById('inboxSubject2').textContent;
+    document.getElementById('subject').innerHTML="<b>送信者</b>：pythias19　<b>宛先</b>：damon40<br><b>件名</b>："+sub;
+    document.getElementById('text').innerHTML
+      =text2;
+    for(var i=0; i<5; i++){
+      document.getElementById('inboxName'+i).style.background='#FFFFFF';
+      document.getElementById('inboxSubject'+i).style.background='#FFFFFF';
+    }
+    document.getElementById('inboxName2').style.background='#CECECE';
+    document.getElementById('inboxSubject2').style.background='#CECECE';
+  });
+  document.getElementById('inboxSubject2').addEventListener('click',function(){
+    var sub = document.getElementById('inboxSubject2').textContent;
+    document.getElementById('subject').innerHTML="<b>送信者</b>：pythias19　<b>宛先</b>：damon40<br><b>件名</b>："+sub;
+    document.getElementById('text').innerHTML
+      =text2;
+    for(var i=0; i<5; i++){
+      document.getElementById('inboxName'+i).style.background='#FFFFFF';
+      document.getElementById('inboxSubject'+i).style.background='#FFFFFF';
+    }
+    document.getElementById('inboxName2').style.background='#CECECE';
+    document.getElementById('inboxSubject2').style.background='#CECECE';
+  });
+  document.getElementById('inboxName3').addEventListener('click',function(){
+    var sub = document.getElementById('inboxSubject3').textContent;
+    document.getElementById('subject').innerHTML="<b>送信者</b>：pythias19　<b>宛先</b>：damon40<br><b>件名</b>："+sub;
+    document.getElementById('text').innerHTML
+      =text3;
+    for(var i=0; i<5; i++){
+      document.getElementById('inboxName'+i).style.background='#FFFFFF';
+      document.getElementById('inboxSubject'+i).style.background='#FFFFFF';
+    }
+    document.getElementById('inboxName3').style.background='#CECECE';
+    document.getElementById('inboxSubject3').style.background='#CECECE';
+  });
+  document.getElementById('inboxSubject3').addEventListener('click',function(){
+    var sub = document.getElementById('inboxSubject3').textContent;
+    document.getElementById('subject').innerHTML="<b>送信者</b>：pythias19　<b>宛先</b>：damon40<br><b>件名</b>："+sub;
+    document.getElementById('text').innerHTML
+      =text3;
+    for(var i=0; i<5; i++){
+      document.getElementById('inboxName'+i).style.background='#FFFFFF';
+      document.getElementById('inboxSubject'+i).style.background='#FFFFFF';
+    }
+    document.getElementById('inboxName3').style.background='#CECECE';
+    document.getElementById('inboxSubject3').style.background='#CECECE';
+  });
+  document.getElementById('inboxName4').addEventListener('click',function(){
+    var sub = document.getElementById('inboxSubject4').textContent;
+    document.getElementById('subject').innerHTML="<b>送信者</b>：pythias19　<b>宛先</b>：damon40<br><b>件名</b>："+sub;
+    document.getElementById('text').innerHTML
+      =text4;
+    for(var i=0; i<5; i++){
+      document.getElementById('inboxName'+i).style.background='#FFFFFF';
+      document.getElementById('inboxSubject'+i).style.background='#FFFFFF';
+    }
+    document.getElementById('inboxName4').style.background='#CECECE';
+    document.getElementById('inboxSubject4').style.background='#CECECE';
+  });
+  document.getElementById('inboxSubject4').addEventListener('click',function(){
+    var sub = document.getElementById('inboxSubject4').textContent;
+    document.getElementById('subject').innerHTML="<b>送信者</b>：pythias19　<b>宛先</b>：damon40<br><b>件名</b>："+sub;
+    document.getElementById('text').innerHTML
+      =text4;
+    for(var i=0; i<5; i++){
+      document.getElementById('inboxName'+i).style.background='#FFFFFF';
+      document.getElementById('inboxSubject'+i).style.background='#FFFFFF';
+    }
+    document.getElementById('inboxName4').style.background='#CECECE';
+    document.getElementById('inboxSubject4').style.background='#CECECE';
+  });
+</script>
+</body>
 </html>
 
